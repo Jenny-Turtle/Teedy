@@ -6,7 +6,7 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Run Tests') {
+        stage('Test report') {
             steps {
                 sh 'mvn test'
             }
@@ -23,6 +23,7 @@ pipeline {
             archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
             archiveArtifacts artifacts: '**/target/**/*.war', fingerprint: true
             junit '**/target/surefire-reports/**/*.xml'
+            step([$class: 'JUnitResultArchiver', testResults: '**/target/surefire-reports/*.xml'])
         }
     }
 }
