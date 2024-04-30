@@ -6,14 +6,15 @@ pipeline {
                 sh 'mvn -B -DskipTests clean package'
             }
         }
-        stage('Test report') {
-            steps {
-                sh 'mvn test'
-            }
-        }
+        
         stage('pmd') {
             steps {
                 sh 'mvn pmd:pmd'
+            }
+        }
+        stage('Test report') {
+            steps {
+                sh 'mvn test'
             }
         }
     }
