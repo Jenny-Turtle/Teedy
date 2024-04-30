@@ -15,7 +15,7 @@ pipeline {
         stage('Test report') {
             steps {
                 sh 'mvn test'
-                sh 'java doc'
+                sh 'mvn javadoc:jar'
             }
         }
     }
