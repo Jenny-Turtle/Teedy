@@ -38,6 +38,5 @@ RUN apt-get update && \
 RUN rm -f /opt/jetty/lib/mail/javax.mail.glassfish-*.jar
 
 ADD docs.xml /opt/jetty/webapps/docs.xml
-ADD docs-web/target/docs-web-*.war 
 
 ENV JAVA_OPTIONS -Xmx1g
