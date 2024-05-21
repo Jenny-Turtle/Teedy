@@ -8,7 +8,7 @@ steps {
  }
  stage('K8s') {
  steps {
- sh 'kubectl set image deployments/hello-node container-name=image-id'
+ sh 'kubectl set image deployments/hello-node docs=latestDocs'
  }
  }
  }
