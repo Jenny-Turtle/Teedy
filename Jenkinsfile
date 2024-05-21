@@ -9,6 +9,9 @@ steps {
  stage('K8s') {
  steps {
  sh 'kubectl set image deployments/hello-node docs=latestDocs'
+
+
+  
  }
  }
  }
